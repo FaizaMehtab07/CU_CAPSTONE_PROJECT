@@ -1,7 +1,7 @@
 import streamlit as st
 
 def bottom_bar():
-    col1, col2, col3 = st.columns([1, 2, 1]) # Adjust widths as needed
+    col1, col2, col3 = st.columns([1, 2, 1]) # Adjusting widths
 
     with col1:
         st.button("⬅️") # Left arrow

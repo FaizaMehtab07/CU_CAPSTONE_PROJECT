@@ -1,10 +1,13 @@
 import streamlit as st
 
 def live_transcription_panel():
-    st.subheader("Live Transcription")
-    st.markdown('"Thank you for joining today\'s presentation. I\'m excited to share with you our latest findings..."')  # Placeholder transcription text
-    st.markdown("---")  # Separator
-    st.markdown("**Tip:** Try to maintain a steady pace")
+    st.markdown("### 📝 Live Transcription")
+    st.markdown("""
+        <div style="color:white; font-size: 15px;">
+            <p>Thank you for joining today’s presentation.</p>
+            <p>I'm excited to share with you our latest findings...</p>
+            <p><b>Tip:</b> Try to maintain a steady pace</p>
+        </div>
+    """, unsafe_allow_html=True)
 
-if __name__ == "__main__":
-    live_transcription_panel()
+    st.button("🔄 Restart")

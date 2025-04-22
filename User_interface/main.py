@@ -78,16 +78,16 @@ def main():
 
         bottom_bar.bottom_bar()
 
-        if st.button("View Results"):
+        if st.button("View Results", key="view_results_button"):
             st.session_state['current_screen'] = 'results'
 
     elif st.session_state['current_screen'] == 'results':
         st.title("Practice Session Results")
         col1, col2, col3 = st.columns(3)
         with col1:
-            speech_fluency()
+            speech_fluency.speech_fluency()
         with col2:
-            body_posture()
+            body_posture.body_posture()
         with col3:
             st.subheader("Emotional Tone (Facial)")
             if st.session_state['all_detected_emotions']:
@@ -95,11 +95,11 @@ def main():
                 for emotion in st.session_state['all_detected_emotions']:
                     emotion_counts[emotion] = emotion_counts.get(emotion, 0) + 1
                 if emotion_counts:
-                    st.markdown("**Detected Emotions:**")
+                    st.markdown("*Detected Emotions:*")
                     for emotion, count in emotion_counts.items():
                         st.markdown(f"- {emotion}: {count}")
                     most_frequent_emotion = max(emotion_counts, key=emotion_counts.get)
-                    st.markdown(f"**Most Frequent Emotion:** {most_frequent_emotion}")
+                    st.markdown(f"*Most Frequent Emotion:* {most_frequent_emotion}")
                     # You can add more detailed display of emotion distribution here (e.g., a bar chart)
                 else:
                     st.warning("No faces detected during the recording.")

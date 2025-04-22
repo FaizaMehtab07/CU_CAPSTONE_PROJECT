@@ -1,16 +1,37 @@
 import streamlit as st
 
 def top_bar():
-    col1, col2, col3 = st.columns([1, 2, 1])  # Adjustment of widths 
+    st.markdown("""
+        <style>
+            .top-bar {
+                background-color: #1f1f2e;
+                padding: 10px 20px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .top-bar h3 {
+                color: white;
+                margin: 0;
+                font-weight: 600;
+            }
+            .top-button {
+                background-color: #444654;
+                color: white;
+                padding: 6px 16px;
+                border-radius: 6px;
+                font-size: 14px;
+                border: none;
+                cursor: pointer;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
-    with col1:
-        st.markdown("### SpeakSmart")  # can also use st.image for a logo
-
-    with col2:
-        st.button("📹 Practice Mode")  # temp Using an emoji for the icon
-
-    with col3:
-        st.image("https://cdn.jsdelivr.net/gh/streamlit/streamlit/doc/_static/user-icon.png", width=30) # Placeholder user icon
-
-if __name__ == "__main__":
-    top_bar()
+    st.markdown("""
+        <div class="top-bar">
+            <h3>🎙️ SpeakSmart</h3>
+            <button class="top-button">Practice Mode</button>
+        </div>
+    """, unsafe_allow_html=True)
